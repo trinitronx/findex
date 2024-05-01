@@ -96,7 +96,7 @@ pub fn result_list_row(
                         .to_str()
                         .unwrap(),
                 ),
-                _ => unreachable!()
+                _ => unreachable!(),
             })
             .expand(true)
             .parent(&box2)

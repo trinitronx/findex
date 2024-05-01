@@ -7,7 +7,7 @@ use findex_plugin::findex_internal::KeyboardShortcut;
 use gtk::builders::BoxBuilder;
 use gtk::gdk::EventKey;
 use gtk::prelude::*;
-use gtk::{Container, Entry, ListBox, Orientation};
+use gtk::{Container, Entry, Image, ListBox, Orientation};
 use std::cmp::min;
 use sublime_fuzzy::{best_match, format_simple};
 
@@ -20,6 +20,14 @@ pub fn searchbox_new(parent: &impl IsA<Container>, result_list: ListBox) -> Entr
     container
         .style_context()
         .add_class("findex-query-container");
+
+    let query_icon = Image::builder()
+        .icon_name(&FINDEX_CONFIG.entry_icon)
+        .parent(&container)
+        .pixel_size(FINDEX_CONFIG.icon_size)
+        .build();
+
+    query_icon.style_context().add_class("findex-query-icon");
 
     let entry = Entry::builder()
         .placeholder_text(&FINDEX_CONFIG.query_placeholder)

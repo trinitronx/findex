@@ -36,3 +36,4 @@ Behaviour can be changed by modifying `~/.config/findex/settings.toml`. If there
 | query_placeholder            | Placeholder text to show in query input box                                                                                     | String  |
 | close_window_on_losing_focus | Close window when it loses focus                                                                                                | Boolean |
 | icon_size                    | Icon width and height will be set from this value                                                                               | Integer |
+| entry_icon                   | Icon displayed beside the searchbar                                                                                             | String  |
