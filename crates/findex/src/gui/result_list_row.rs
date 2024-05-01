@@ -8,10 +8,7 @@ use gtk::gdk_pixbuf::{Colorspace, Pixbuf};
 use gtk::gio::{AppLaunchContext, DesktopAppInfo};
 use gtk::pango::EllipsizeMode;
 use gtk::prelude::*;
-use gtk::{
-    IconLookupFlags, IconTheme, Image, Justification, Label, ListBox, ListBoxRow, MessageType,
-    Orientation,
-};
+use gtk::{Align, IconLookupFlags, IconTheme, Image, Justification, Label, ListBox, ListBoxRow, MessageType, Orientation};
 use shlex::split;
 use std::process::Command;
 
@@ -38,6 +35,7 @@ pub fn result_list_row(
 
     let box2 = BoxBuilder::new()
         .orientation(Orientation::Vertical)
+        .valign(Align::Center)
         .parent(&box1)
         .build();
     box2.style_context()
