@@ -64,7 +64,7 @@ impl Default for FindexConfig {
             icon_size: 32,
             entry_icon: RString::from("search"),
             min_score: 5,
-            result_size: 10,
+            result_size: 5,
             toggle_key: RString::from("<Shift>space"),
             error: RString::new(),
             plugins: HashMap::new(),
