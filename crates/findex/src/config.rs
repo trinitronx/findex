@@ -56,7 +56,7 @@ impl Default for FindexConfig {
         FindexConfig {
             min_content_height: 0,
             max_content_height: 400,
-            default_window_width: 600,
+            default_window_width: 700,
             name_match_highlight_color: RString::from("orange"),
             decorate_window: false,
             query_placeholder: RString::from("Search for applications"),
