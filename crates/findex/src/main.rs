@@ -14,7 +14,7 @@ static FINDEX_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 fn main() {
     if std::env::args().any(|arg| arg == "--about") {
-        println!("Findex v{FINDEX_VERSION}");
+        println!("Findex v{FINDEX_VERSION} from {}", env!("GIT_COMMIT"));
         println!("Author: MD Gaziur Rahman Noor <mdgaziurrahmannoor@gmail.com>");
         println!("License: GPL3");
         println!("Report issues at: https://github.com/mdgaziur/findex/issues");
