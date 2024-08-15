@@ -96,15 +96,13 @@ impl GUI {
         window.connect_key_press_event({
             let entry = search_box.clone();
             let list_box = result_list.clone();
-            let scrolled_container = scrolled_container;
 
             move |window, event| {
                 // TODO(mdgaziur): fix this hack
                 let entry = entry.clone();
                 let list_box = list_box.clone();
-                let scrolled_container = scrolled_container.clone();
 
-                keypress_handler(window, entry, scrolled_container, list_box, event)
+                keypress_handler(window, entry, list_box, event)
             }
         });
 
@@ -240,7 +238,6 @@ struct KeypressHandlerPayload {
 fn keypress_handler(
     window: &Window,
     entry: Entry,
-    _scrolled_container: ScrolledWindow,
     list_box: ListBox,
     eventkey: &EventKey,
 ) -> Inhibit {
