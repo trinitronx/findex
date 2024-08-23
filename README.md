@@ -71,7 +71,7 @@ check instructions from the `release` branch.
 - Make `/opt/findex` directory
 - Copy `css/style.css` to `/opt/findex`
 - Copy `target/release/findex` to `/usr/bin/`
-- Copy `targer/release/findex-daemon` to `/usr/bin/`
+- Copy `target/release/findex-daemon` to `/usr/bin/`
 - Add `findex-daemon` to autostart/startup applications
 
 ### Installation from AUR
