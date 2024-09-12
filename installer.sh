@@ -12,6 +12,9 @@ do_installation() {
     sudo echo ""
     sudo mkdir -p /opt/findex
     sudo cp css/style.css /opt/findex
+    sudo install -Dm644 service/*.service -t /usr/lib/systemd/user
+    systemctl daemon-reload --user
+
 
     if [[ ! -f ~/.config/findex/settings.toml ]]; then
         touch ~/.config/findex/settings.toml
@@ -37,6 +40,10 @@ do_removal() {
     sudo rm /usr/bin/findex-daemon
     sudo rm -r /opt/findex
     killall findex-daemon findex
+    systemctl stop --user findex-daemon.service
+    systemctl disable --user findex-daemon.service
+    sudo rm -f /usr/lib/systemd/user/findex-daemon.service
+    systemctl daemon-reload --user
     echo "Removal done!"
     echo "If you added \"findex-daemon\" to autostart, you may remove it now."
 }
