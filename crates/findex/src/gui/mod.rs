@@ -213,13 +213,16 @@ impl GUI {
     fn position_window(window: &Window) {
         let display = gdk::Display::default().unwrap();
 
-        let monitor_geo = if let RSome(on_monitor) = FINDEX_CONFIG.on_monitor {
-            display
-                .monitor(on_monitor.abs() % display.n_monitors())
-                .unwrap()
-                .geometry()
+        let monitor = if let RSome(on_monitor) = FINDEX_CONFIG.on_monitor {
+            display.monitor(on_monitor.abs() % display.n_monitors())
         } else {
-            display.primary_monitor().unwrap().geometry()
+            display.primary_monitor()
+        };
+
+        let monitor_geo = if let Some(monitor) = monitor {
+            monitor.geometry()
+        } else {
+            return;
         };
 
         let screen_height = monitor_geo.height() as f32;
